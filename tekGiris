@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        boolean kontrol = true;
+        int sayi;
+        int toplam = 0;
+        while (kontrol){
+            System.out.print("Sayı giriniz: ");
+            sayi = input.nextInt();
+            if (sayi%2==1){
+                kontrol=false;
+            }
+            if (sayi%2==0&&sayi%4==0){
+                toplam+=sayi;
+            }
+        }
+        System.out.println("Toplam: "+toplam);
+    }
+}
