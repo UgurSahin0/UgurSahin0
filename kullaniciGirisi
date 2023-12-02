@@ -1,0 +1,49 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        boolean kayitliMi = false;
+        boolean girisBasariliMi = false;
+        String girisAdi;
+        String girisSifresi;
+        String kayitAdi = "";
+        String kayitSifresi = "";
+        String sifreDegistir;
+
+        if (kayitliMi == false) {
+            System.out.println("Kayıt işlemlerine hoşgeldiniz.");
+            System.out.print("Kullanıcı adı: ");
+            kayitAdi = input.next();
+            System.out.print("Şifre: ");
+            kayitSifresi = input.next();
+            System.out.println("Kayıt başarı ile gerçekleştirildi.");
+            kayitliMi = true;
+        }
+        while (kayitliMi == true) {
+            Scanner in = new Scanner(System.in);
+            System.out.println("Giriş ekranına hoşgeldiniz.");
+            System.out.print("Kullanıcı adı: ");
+            girisAdi = in.next();
+            System.out.print("Şifre: ");
+            girisSifresi = in.next();
+            if ((girisAdi.equals(kayitAdi)) && (girisSifresi.equals(kayitSifresi) )) {
+                System.out.println("Giriş başarılı!");
+                girisBasariliMi = true;
+                break;
+            } else {
+                System.out.println("Kullanıcı adı ya da şifre yanlış.");
+                System.out.println("Şifre değiştirmek için 'Evet' yazınız");
+                sifreDegistir = input.next();
+                if (sifreDegistir.equals("Evet")) {
+                    System.out.print("Yeni şifre: ");
+                    girisSifresi = input.next();
+                    kayitSifresi = girisSifresi;
+                    System.out.println("Şifreniz başarıyla değiştirildi!");
+                }
+            }
+        }
+        if (girisBasariliMi == true) {
+            System.out.println("Sisteme hoşgeldiniz.");
+        }
+    }
+}
